@@ -709,7 +709,7 @@ preset_keyboards:
       #- {click: num9}
       #- {click: num0}
       # 第 1 行
-      - { width: 10, click: 'q', long_click: '`', label_symbol: '1', hint: '`辅码', swipe_up: '1', swipe_down: 'Q', __include: styl/key }
+      - { width: 10, click: 'q', long_click: '1', swipe_up: '1', swipe_down: 'Q', __include: styl/key }
       - { width: 10, click: 'w', long_click: '2', swipe_up: '2', swipe_down: 'W', __include: styl/key }
       - { width: 10, click: 'e', long_click: '3', swipe_up: '3', swipe_down: 'E', __include: styl/key }
       - { click: 'r',
@@ -782,7 +782,7 @@ preset_keyboards:
       - {width: 5}
       # 第 3 行
 #      - { click: Shift_L, composing: split_word, }   原来的样子
-      - { click: Shift_L, composing: delimiter, key_back_color: c1, width: 15}
+      - { click: Shift_L, composing: fuma, key_back_color: c1, width: 15}
       - { click: 'z', long_click: undo, hint: '⤺', label_symbol: '-', swipe_up: 'jianhao', swipe_down: 'Z', __include: styl/key }
       - { click: 'x', long_click: cut, hint: '✂', label_symbol: '%', swipe_up: '%', swipe_down: 'X', __include: styl/key }
       - { click: 'c', long_click: copy, hint: '❐', label_symbol: '&', swipe_up: '&', swipe_down: 'C', __include: styl/key }
@@ -999,7 +999,7 @@ preset_keyboards:
       - {width: 5}
       # 第 3 行
      # - { click: Shift_L, composing: split_word, }   原来的样子
-      - { click: Shift_L, composing: delimiter,  key_back_color: c1, width: 15}
+      - { click: Shift_L, composing: fuma,  key_back_color: c1, width: 15}
       - { click: 'z', long_click: undo, hint: '⤺', label_symbol: '-', swipe_up: 'jianhao', swipe_down: 'Z', __include: styl/key }
       - { click: 'x', long_click: cut, hint: '✂', label_symbol: '%', swipe_up: '%', swipe_down: 'X', __include: styl/key }
       - { click: 'c', long_click: copy, hint: '❐', label_symbol: '&', swipe_up: '&', swipe_down: 'C', __include: styl/key }
@@ -1288,6 +1288,7 @@ preset_keys:
   redo: { label: ⤻, send: Control+Shift+z } #>=Android 6.0
   undo: { label: ⤺, send: Control+z } #>=Android 6.0
   delimiter: {label: 分词, text: ''''}
+  fuma: {label: 辅码, text: '`'}
   delimiter1: {label: '詞', text: '.'}
 #liquidkeyboard剪切板相关
   liquid_keyboard_switch: { label: 更多, send: function, command: liquid_keyboard, option: "更多", width:200}
