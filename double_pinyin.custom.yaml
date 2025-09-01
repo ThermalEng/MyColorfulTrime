@@ -1,0 +1,67 @@
+patch:
+  menu:
+  # 候选词个数
+    page_size: 8
+
+  'engine/processors/@before 0': predictor
+  'engine/translators/@before 1': predict_translator
+  predictor:
+    db: predict.db
+    max_candidates: 8
+    max_iterations: 0
+
+  codeLengthLimit_processor: 100
+
+  "radical_reverse_lookup/prefix": "U"
+  "recognizer/patterns/radical_lookup": "U[a-z]*'?$"
+  
+  "schema/name": "自然码双拼"
+
+  'schema/dependencies/@before 0': stroke
+  'engine/segmentors/@before 0': "affix_segmentor@stroke"
+  stroke:
+    tag: stroke
+    dictionary: stroke
+    enable_user_dict: false
+    prefix: 'I'
+    tips: 〔笔画〕
+    preedit_format:
+      - xlit/hspnz/一丨丿丶乙/
+  'engine/translators/@before 0': reverse_lookup_translator@stroke
+  'reverse_lookup/tags/@before 0': stroke
+  'recognizer/patterns/stroke': "I[a-z]*'?$"
+  
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中, 英 ]
+    - name: emoji_suggestion
+      states: [ "😣","😁"]
+      : 1
+    - name: full_shape
+      states: [ 🌙, 🌕]
+      reset: 0
+    - name: tone_display                  #开启后在输入编码的位置实时转换为带声调全拼，不开启则采用系统配置，影响的是preedit_format,归属：super_preedit.lua
+      states: [ 杳, 声 ]
+      reset: 0
+    - name: transcription
+      states: [ 简 , 繁 ]
+      reset: 0
+    - name: ascii_punct
+      states: [ "。", "．" ]
+      reset: 0
+    - name: prediction
+      states: [ 🚫, 🕵️‍]
+      reset: 0 
+
+
+
+    
+  grammar:
+    language: wanxiang-lts-zh-hans  
+    collocation_max_length: 5
+    collocation_min_length: 2
+  translator/contextual_suggestions: true
+  translator/max_homophones: 7
+  translator/max_homographs: 7
