@@ -1135,7 +1135,7 @@ preset_keyboards:
     keys:
       # 第一行
       - { click: undo, long_click: cut, key_back_color: bgn, key_text_color: tgn, key_text_size: 18 }
-      - { click: Up, long_click: copy, key_back_color: bh1, key_text_color: tgn, key_text_size: 16 }
+      - { click: Up, long_click: safe_copy, key_back_color: bh1, key_text_color: tgn, key_text_size: 16 }
       - { click: redo, long_click: paste_in_num, key_back_color: bgn, key_text_color: tgn, key_text_size: 18 }
       - {width: 2}
       - { click: 7, long_click: "log", width: 14, key_back_color: bh1, key_text_color: tgn, key_text_size: 18 }
@@ -1153,7 +1153,7 @@ preset_keyboards:
       - { click: "+", long_click: '*', width: 14, key_symbol_offset_x: 9, key_back_color: bgn, key_text_color: tgn, key_text_size: 16 }
       # 第三行
       - { click: "Tab",  long_click: Left1, key_symbol_offset_x: 9, key_back_color: bgn, key_text_color: tgn, key_text_size: 16 }
-      - { click: Down, long_click: '', key_back_color: bh1, key_text_color: tgn, key_text_size: 16 }
+      - { click: Down, long_click: 'copy', label_symbol: "^c", key_back_color: bh1, key_text_color: tgn, key_text_size: 16 }
       - { click: ',', long_click: Right1,  key_symbol_offset_x: 9, key_back_color: bgn, key_text_color: tgn, key_text_size: 16 }
       - {width: 2}
       - { click: 1, long_click: '(', width: 14, key_back_color: bh1, key_text_color: tgn, key_text_size: 18 }
@@ -1284,6 +1284,7 @@ preset_keys:
   paste_in_num: { label: '▣', text: paste+Eisu_toggle, select: number}
   paste_text: { label: 贴上文本, send: Control+Shift+Alt+v } #>=Android 6.0
   share_text: { label: 分享文本, send: Control+Alt+s } #>=Android 6.0
+  safe_copy: { label: '❐', send: Control+Shift+c}
   redo: { label: ⤻, send: Control+Shift+z } #>=Android 6.0
   undo: { label: ⤺, send: Control+z } #>=Android 6.0
   delimiter: {label: 分词, text: ''''}
