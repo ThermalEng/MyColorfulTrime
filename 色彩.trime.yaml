@@ -1281,7 +1281,7 @@ preset_keys:
   copy: { label: '❐', send: Control+c }
   copy_all: { label: 全誊, text: '{Control+a}{Control+c}' } #全选并复制
   paste: { label: '▣', send: Control+v }
-  paste_in_num: { label: '▣', text: paste+Eisu_toggle, select: number}
+  paste_in_num: { label: '▣', send: Control+v, lock: true, select: number}
   paste_text: { label: 贴上文本, send: Control+Shift+Alt+v } #>=Android 6.0
   share_text: { label: 分享文本, send: Control+Alt+s } #>=Android 6.0
   safe_copy: { label: '❐', send: Control+Shift+c}
