@@ -443,7 +443,7 @@ liquid_keyboard:
 
  #     - liquid_keyboard_clipboard  
  #     - liquid_keyboard_switch    #进入更多
-  keyboards: [ clipboard, draft, cn, ascii, math, emoji, symbol, list,  pinyin, jp, grease, rusa, korea, lation, yinbiao, unit, yanwenzi, tabs]  #tab列表
+  keyboards: [ clipboard, draft, cn, ascii, math, emoji, grease, pinyin, yinbiao, unit, symbollist, symbol, list, lation,   jp,  rusa, korea, yanwenzi, tabs]  #tab列表
   candidate:
     name: 候选
     type: CANDIDATE
@@ -495,11 +495,11 @@ liquid_keyboard:
       - 】
       - 《
       - 》
+      - 〈
+      - 〉
       - ～
       - { click: "—" }
       - ·
-      - ……
-      - ——
       - ［
       - ］
       - ｛
@@ -508,12 +508,22 @@ liquid_keyboard:
       - 」
       - 『
       - 』
-      - ﹁
-      - ﹂
       - 〔
       - 〕
       - 〖
-      - 〗    
+      - 〗
+      - ｜
+      - ‖
+      - ……
+      - ——
+      - ¡
+      - ¿
+      - ﹏
+      - ﹋
+      - ￣
+      - ¯
+      - ﹍
+      - ﹎
   symbol:
     name: 特殊
     type: SINGLE
@@ -553,11 +563,11 @@ liquid_keyboard:
   ascii:
     type: SINGLE
     name: 英文
-    keys: ",.?!:;*/\\|-+=^$`'\"^~@#%&()[]{}_"
-  ids:
-    type: SINGLE
-    name: IDS
-    keys: "⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺⿻↷↔"
+    keys: ",.?!:;*/\\|-+=^$`'\"^~@#%&()[]{}_<>%$&·"
+  symbollist:
+    type: SYMBOL
+    name: 符号表
+    keys: [ 符号: '/fh', 电脑: '/dn', 象棋: '/xq', 麻将: '/mj', 骰子: '/sz', 扑克: '/pk', 天气: '/tq', 音乐: '/yy', 八卦: '/bg', 易经: '/lssg', 天体: '/tt',  星座: '/xz',  星号: '/xh',  方块: '/fk',  几何: '/jh',  箭头: '/jt',  数学: '/sx',  上标: '/sb',  下标: '/xb',  单位: '/dw',  货币: '/hb',  拼音: '/py',  注音: '/zy',  假名: '/jm',  片假: '/pjm',  韩文: '/hw',  希腊: '/xl',  希大: '/xld', 罗马:   '/lm',  罗大:   '/lmd', 俄语:   '/ey',  俄大:   '/eyd', 表情:  '/bq',  一: '/1',  二: '/2',  三: '/3',  四: '/4',  五: '/5',  六: '/6',  七: '/7',  八: '/8',  九: '/9',  零: '/0',  十: '/10',  分数: '/fs',  标点: '/bd',  偏旁: '/pp',  竖标:  '/bdz'  ]
   jp:
     type: SINGLE
     name: 假名
