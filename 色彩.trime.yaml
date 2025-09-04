@@ -48,7 +48,7 @@ styl:
 
 style:
   color_scheme: default #默认配色方案
-  keyboard_height: 240 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height: 250 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
   horizontal: true #水平模式。改变方向键的功能 （true：方向键适配横排候选；false：方向键适配竖排候选）
   keyboard_padding: 1 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
@@ -88,7 +88,7 @@ style:
   proximity_correction: true #按键纠错
   vertical_correction: -5 #按键偏移（上偏为正）
   horizontal_gap: 16 #键水平间距
-  vertical_gap: 5 #键盘行距
+  vertical_gap: 7 #键盘行距
   ## 主按键
   key_height: 30 #键高
   key_width: 12 #键宽，占屏幕宽的百分比
@@ -770,8 +770,8 @@ preset_keyboards:
           long_click: liquid_keyboard_clipboard,
           swipe_up: liquid_keyboard_clipboard,
           swipe_left: liquid_keyboard_clipboard,
+          composing: Escape1,
           key_symbol_offset_x: 10,
-          key_text_size: 20,
           width: 14,
           __include: styl/off_key,  
           key_back_color: c4, 
@@ -1079,7 +1079,7 @@ preset_keyboards:
       # 第一行
       - { click: undo, long_click: cut, __include: styl/off_num }
       - { click: Up }
-      - { click: redo, long_click: safe_copy, __include: styl/off_num }
+      - { click: redo, long_click: copy, __include: styl/off_num }
       - {width: 2}
       - { click: 1, long_click: "log", width: 14 }
       - { click: 2, long_click: "fact", width: 14 }
@@ -1087,7 +1087,7 @@ preset_keyboards:
       - { click: "jianhao", long_click: '/', width: 14, __include: styl/off_num }
       # 第二行
       - { click: Left}
-      - { click: Shift_Lock, long_click: select_all, key_text_size: 12, __include: styl/off_num }
+      - { click: Shift_Lock, long_click: F5, key_text_size: 12, __include: styl/off_num }
       - { click: Right }
       - {width: 2}
       - { click: 4, long_click: "a", width: 14 }
@@ -1095,7 +1095,7 @@ preset_keyboards:
       - { click: 6, long_click: "tan", width: 14 }
       - { click: "+", long_click: '*', width: 14, __include: styl/off_num }
       # 第三行
-      - { click: "Tab",  long_click: 'copy', label_symbol: "^c", __include: styl/off_num }
+      - { click: "Tab",  long_click: select_all,  __include: styl/off_num }
       - { click: Down }
       - { click: ',', long_click: paste_in_num, __include: styl/off_num }
       - {width: 2}
@@ -1106,12 +1106,12 @@ preset_keyboards:
       # 第四行
       - { click: Back, long_click: 'Escape', key_symbol_offset_x: 9, key_back_color: c7, key_text_size: 14, __include: styl/off_num_key}
       - { click: "liquid_keyboard_math", long_click: "liquid_keyboard_clipboard", key_symbol_offset_x: 9, key_back_color: c4, key_text_size: 20, __include: styl/off_num_key }
-      - { click: "dengyu",  long_click: Cal_switch , key_symbol_offset_x: 6, key_back_color: c1, key_text_size: 16, __include: styl/off_num_key }
+      - { click: "dengyu",  long_click: Cal_switch , key_symbol_offset_x: 6, key_back_color: c1, __include: styl/off_num_key }
       - {width: 2}
       #- { click: 'space2', width: 14,  key_text_size: 26}
       - { click: 0, long_click: 'e', width: 28 }
-      - { click: 'juhao', long_click: 'pi', width: 14, key_text_size: 16,__include: styl/off_num }
-      - { click: Return, width: 14, key_back_color: enter_back_color,  key_text_size: 22 , __include: styl/off_num_key }
+      - { click: 'juhao', long_click: 'pi', width: 14, __include: styl/off_num }
+      - { click: Return, width: 14, key_back_color: enter_back_color,  key_text_size: 24 , __include: styl/off_num_key }
 
 
 
@@ -1202,6 +1202,7 @@ preset_keys:
   space3: {repeatable: false, label: '_______', functional: false, send: space} #主键盘空格键的英文模式
   space4: {repeatable: false, label: '⎵', functional: false, send: space, key_back_color: c5, key_text_size: 16, width: 80 }
   Escape: { label: Esc, send: Escape }
+  Escape1: { label: "重输", send: Escape}
   #Clear: {label: 全清, send: Clear}
   Home: { label: '|<', send: Home }
   CtrlHome: { label:  ⇱, send Control+Home}
@@ -1227,7 +1228,6 @@ preset_keys:
   paste_in_num: { label: '▣', send: Control+v, lock: true, select: number}
   paste_text: { label: 贴上文本, send: Control+Shift+Alt+v } #>=Android 6.0
   share_text: { label: 分享文本, send: Control+Alt+s } #>=Android 6.0
-  safe_copy: { label: '❐', send: Control+Shift+c}
   redo: { label: ⤻, send: Control+Shift+z } #>=Android 6.0
   undo: { label: ⤺, send: Control+z } #>=Android 6.0
   delimiter: {label: 分词, text: ''''}
@@ -1237,14 +1237,15 @@ preset_keys:
   liquid_keyboard_switch: { label: 更多, send: function, command: liquid_keyboard, option: "更多", width:200}
   liquid_keyboard_exit: {label: 返回, send: function, command: liquid_keyboard, option: "-1", key_back_color: c5}  #退出liquidkeyboard
   liquid_keyboard_emoji: { label: 🙂, send: function, command: liquid_keyboard, option: "emoji" }
-  liquid_keyboard_math: { label: '❖', send: function, command: liquid_keyboard, option: "数学" }
+  liquid_keyboard_math: { label: '❖', send: function, command: liquid_keyboard, option: "数学", key_text_size: 20 }
   liquid_keyboard_clipboard: { label: 📋︎, send: function, command: liquid_keyboard, option: "剪贴" }
-  liquid_keyboard_cn: { label: '❖', send: function, command: liquid_keyboard, option: "中文" }
-  liquid_keyboard_ascii: { label: '❖', send: function, command: liquid_keyboard, option: "英文" }
+  liquid_keyboard_cn: { label: '❖', send: function, command: liquid_keyboard, option: "中文", key_text_size: 20}
+  liquid_keyboard_ascii: { label: '❖', send: function, command: liquid_keyboard, option: "英文", key_text_size: 20 }
   jisuan: { label: '计算', send: V }
   jine: { label: '金额', send: R }
   riqi: { label: '日期', send: N }
   # rime组合键
+  F5: {label: ⟳, send: F5 }
   F4: { label: 方案选单, send: F4 }
   BackToPreviousSyllable: { label: 删音节, send: Control+BackSpace }
   CommitRawInput: { label: 编码, send: Control+Return }
