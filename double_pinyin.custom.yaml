@@ -3,8 +3,8 @@ patch:
   # 候选词个数
     page_size: 8
 
-  'engine/processors/@before 0': predictor
-  'engine/translators/@before 1': predict_translator
+  'engine/processors/@after last': predictor
+  'engine/translators/@after last': predict_translator
   predictor:
     db: predict.db
     max_candidates: 8
@@ -17,8 +17,8 @@ patch:
   
   "schema/name": "自然码双拼"
 
-  'schema/dependencies/@before 0': stroke
-  'engine/segmentors/@before 0': "affix_segmentor@stroke"
+  'schema/dependencies/@after last': stroke
+  'engine/segmentors/@after last': "affix_segmentor@stroke"
   stroke:
     tag: stroke
     dictionary: stroke
@@ -27,10 +27,14 @@ patch:
     tips: 〔笔画〕
     preedit_format:
       - xlit/hspnz/一丨丿丶乙/
-  'engine/translators/@before 0': reverse_lookup_translator@stroke
-  'reverse_lookup/tags/@before 0': stroke
+  'engine/translators/@after 1': reverse_lookup_translator@stroke
+  'reverse_lookup/tags/@after last': stroke
   'recognizer/patterns/stroke': "I[a-z]*'?$"
   
+  'engine/filters/@after last': 'simplifier@mars'
+  mars:
+    opencc_config: martian.json 
+    option_name: mars
 
   switches:
     - name: ascii_mode
@@ -42,7 +46,7 @@ patch:
     - name: full_shape
       states: [ 🌙, 🌕]
       reset: 0
-    - name: tone_display                  #开启后在输入编码的位置实时转换为带声调全拼，不开启则采用系统配置，影响的是preedit_format,归属：super_preedit.lua
+    - name: tone_display
       states: [ 杳, 声 ]
       reset: 0
     - name: transcription
@@ -54,6 +58,9 @@ patch:
     - name: prediction
       states: [ 🚫, 🕵️‍]
       reset: 0 
+    - name: mars
+      reset: 0
+      states: [ 地, 煋 ]
 
 
 
