@@ -387,9 +387,12 @@ liquid_keyboard:
   fixed_key_bar:  # 固定按键条
     position: right  # 摆放位置（在滚动区域的……） top|bottom|left|right
     keys:  # 按键（显示名称为对应的label，不能放太多）
-      - BackSpace1
       - liquid_keyboard_exit
       - liquid_keyboard_switch
+      - BackSpace1
+      - Return1
+
+
 
  #     - liquid_keyboard_clipboard  
  #     - liquid_keyboard_switch    #进入更多
@@ -687,7 +690,7 @@ preset_keyboards:
           long_click: '7',
           swipe_up: '7',
         }
-      - { width: 10, click: 'i', long_click: '8', swipe_up: '8', swipe_down: 'I', hint: "笔顺" }
+      - { width: 10, click: 'i', long_click: '8', swipe_up: '8', swipe_down: 'I', hint: "笔画" }
       - { width: 10, click: 'o', long_click: '9', swipe_up: '9', swipe_down: 'O' }
       - { width: 10, click: 'p', long_click: '0', swipe_up: '0', swipe_down: 'P' }
       # 第 2 行
@@ -1192,7 +1195,7 @@ preset_keys:
   Shift_Lock: {label: 选择, send: Shift_L }
   Tab: {label: '↹', preview: '↹', functional: false, send: Tab}
   Return: { label: ⏎, send: Return }
-  Return1: { label: ⏎回车, send: Return }
+  Return1: { label: 回车, send: Return }
   Hide: { label: '▼', send: BACK }
   BackSpace: { label: ⌫, repeatable: true, send: BackSpace }
   BackSpace1: { label: 退格, repeatable: true, send: BackSpace }
